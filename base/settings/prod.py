@@ -31,6 +31,7 @@ DATABASES = {
 CORS_ALLOWED_ORIGINS = [
     'https://markanthonyvale.herokuapp.com',
     'https://admin-mav.herokuapp.com',
+    'https://mav-bot.herokuapp.com/',
     # 'http://markanthonyvale.herokuapp.com',
     # 'http://markanthonyvale.herokuapp.com'
     # 'http://localhost:8080',
@@ -42,11 +43,13 @@ CORS_ALLOWED_ORIGINS = [
 CSRF_TRUSTED_ORIGINS = [
     'https://markanthonyvale.herokuapp.com',
     'https://admin-mav.herokuapp.com',
+    'https://mav-bot.herokuapp.com/',
 ]
 CORS_ALLOW_ALL_ORIGINS = False
 CORS_ORIGIN_WHITELIST = [
     'https://markanthonyvale.herokuapp.com',
     'https://admin-mav.herokuapp.com',
+    'https://mav-bot.herokuapp.com/',
 ]
 
 TEMPLATES = [
