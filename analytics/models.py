@@ -2,6 +2,14 @@ from django.db import models
 # from django.utils import timezone
 from datetime import datetime, timedelta
 
+class TextMessage(models.Model):
+    text = models.CharField(max_length=500)
+    ip = models.GenericIPAddressField(null=True, blank=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.text
+
 class PageVisit(models.Model):
     count = models.IntegerField(default=1)
     ip = models.GenericIPAddressField(null=True, blank=True)

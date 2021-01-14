@@ -1,10 +1,40 @@
-from . serializers import PageVisitSerializer
+from typing import Text
+from . serializers import PageVisitSerializer, TextMessageSerializer
 from rest_framework.permissions import AllowAny
 from rest_framework.permissions import IsAdminUser
-from . models import PageVisit, PageViewsAnalytics
+from rest_framework.generics import CreateAPIView
+from . models import PageVisit, PageViewsAnalytics, TextMessage
 from rest_framework import  viewsets #status
 from rest_framework.response import Response
 
+class addText(viewsets.ModelViewSet):
+    serializer_class = TextMessageSerializer
+    permission_classes = [AllowAny]
+    queryset = TextMessage.objects.all().order_by('-timestamp')
+    def create(self, request, *args, **kwargs):
+        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+
+        if x_forwarded_for:
+            ipaddress = x_forwarded_for.split(',')[-1].strip()
+        else:
+            ipaddress = request.META.get('REMOTE_ADDR')
+
+        sender= TextMessage() #imported class from model
+        sender.ip= ipaddress
+        # sender.save()
+        return super().create(request, *args, **kwargs)
+    # def create(self, request, *args, **kwargs):
+    #     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+
+    #     if x_forwarded_for:
+    #         ipaddress = x_forwarded_for.split(',')[-1].strip()
+    #     else:
+    #         ipaddress = request.META.get('REMOTE_ADDR')
+
+    #     sender= TextMessage() #imported class from model
+    #     sender.ip= ipaddress
+    #     sender.save()
+    #     return create().list(request, *args, **kwargs)
 
 class PageViewSet(viewsets.ModelViewSet):
     queryset = PageVisit.objects.all()
@@ -58,4 +88,4 @@ class PageViewSet(viewsets.ModelViewSet):
             permission_classes = [IsAdminUser]
         return [permission() for permission in permission_classes]
 
-    
+
