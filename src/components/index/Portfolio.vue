@@ -18,7 +18,7 @@
                     presets and photoshop templates.
                   </p>
                   <div class="portfolio-icons">
-                    <a href="https://github.com/markavale/mavshop/" target="new"
+                    <a href="https://github.com/markavale/mavshopv2/" target="new"
                       ><span><i class="fab fa-github"></i></span
                     ></a>
                     <a href="#under-development" target="new"

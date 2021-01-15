@@ -2,7 +2,7 @@ from django.contrib import admin
 from . models import PageVisit, PageViewsAnalytics, TextMessage
 
 class PageVisitAdmin(admin.ModelAdmin):
-    list_display = ('count', 'ip', 'timestamp')
+    list_display = ('session', 'count', 'ip', 'timestamp', 'duration')
 
 class TextMessageAdmin(admin.ModelAdmin):
     list_display = ('text', 'ip', 'timestamp')

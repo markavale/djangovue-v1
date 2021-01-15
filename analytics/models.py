@@ -1,20 +1,24 @@
 from django.db import models
 # from django.utils import timezone
 from datetime import datetime, timedelta
+from django.contrib.sessions.models import Session
 
 class TextMessage(models.Model):
     text = models.CharField(max_length=500)
     ip = models.GenericIPAddressField(null=True, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
+    
 
     def __str__(self):
         return self.text
 
 class PageVisit(models.Model):
+    session = models.CharField(max_length=255, null=True)
     count = models.IntegerField(default=1)
     ip = models.GenericIPAddressField(null=True, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
-
+    duration = models.CharField(max_length=255)
+    
     def __str__(self):
         if self.ip:
             return self.ip
