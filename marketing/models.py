@@ -22,7 +22,14 @@ class Rating(models.Model):
     def __str__(self):
         return "Annonymous user rated {0} stars".format(self.rate)
 
-    
+class Skipper(models.Model):
+    session             = models.CharField(max_length=255)
+    count               = models.IntegerField(default=1)
+    ip                  = models.GenericIPAddressField(null=True, blank=True)
+    timestamp           = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.session
 
 
 

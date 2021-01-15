@@ -110,7 +110,7 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
-import { axiosBase } from "@/api/axiosConfig";
+// import { axiosBase } from "@/api/axiosConfig";
 export default {
   data() {
     return {
@@ -151,20 +151,23 @@ export default {
       // }
     },
     getCurrentUser() {
+      console.log(this.isAuthenticated)
       if (this.isAuthenticated) {
-        axiosBase
-          .get("auth/user/", {
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded",
-              Authorization: `Token ${localStorage.getItem("token")}`,
-            },
-          })
-          .then((res) => {
-            this.$store.commit("currentUser", res.data);
-            this.user = this.$store.state.user.user;
-          })
-          .catch((err) => console.log(err));
+        this.$store.dispatch('fetchCurrentUser')
       }
+      //   axiosBase
+      //     .get("auth/user/", {
+      //       headers: {
+      //         "Content-Type": "application/x-www-form-urlencoded",
+      //         Authorization: `Token ${localStorage.getItem("token")}`,
+      //       },
+      //     })
+      //     .then((res) => {
+      //       this.$store.commit("currentUser", res.data);
+      //       this.user = this.$store.state.user.user;
+      //     })
+      //     .catch((err) => console.log(err));
+      // }
     },
   },
 };

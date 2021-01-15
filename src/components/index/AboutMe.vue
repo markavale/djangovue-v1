@@ -103,9 +103,9 @@
                 <div
                   class="progress-bar"
                   role="progressbar"
-                  style="width: 30%"
-                  aria-valuenow="30"
-                  aria-valuemin="70"
+                  style="width: 70%"
+                  aria-valuenow="70"
+                  aria-valuemin="30"
                   aria-valuemax="100"
                 >
                   Vuetify

@@ -3,7 +3,8 @@ import { axiosBase } from "@/api/axiosConfig";
 
 const state = {
     mail: {},
-    rating: {}
+    rating: {},
+    skipper: {}
 }
 
 const getters = {
@@ -32,11 +33,23 @@ const actions = {
                 })
                 .catch(err => reject(err));
         })
+    },
+    skipUser: (context, payload) => {
+        return new Promise((resolve, reject) => {
+            axiosBase
+                .post('api/skipper/', payload)
+                .then(res => {
+                    resolve(true);
+                    context.commit('newSkipper', res.data);
+                })
+                .catch(err => reject(err));
+        })
     }
 }
 const mutations = {
     newMail: (state, newMail) => state.mail.unshift(newMail),
     newRating: (state, newRating) => state.rating.unshift(newRating),
+    newSkipper: (state, newSkipper) => state.skipper.unshift(newSkipper),
 }
 
 

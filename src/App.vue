@@ -53,12 +53,12 @@ export default {
         .dispatch("pageViewsIncrement", {
           counter: this.counter,
         })
-        .then(() =>console.log("Inceremented!!!"))
-        .catch((err) => {
-          console.log(err);
-          let error_data = err.response.data;
-          console.log(error_data);
-        });
+        // .then(() =>console.log("Inceremented!!!"))
+        // .catch((err) => {
+        //   console.log(err);
+        //   let error_data = err.response.data;
+        //   console.log(error_data);
+        // });
     },
     onScroll(e) {
       if (typeof window === "undefined") return;

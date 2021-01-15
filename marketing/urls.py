@@ -1,10 +1,11 @@
 from django.urls import path, include
-from . views import  MessagesViewSet, RatingViewSet#AddRating, RatingsList, MessagesList, 
+from . views import  MessagesViewSet, RatingViewSet, SkipperViewSet#AddRating, RatingsList, MessagesList, 
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
 router.register('messages', MessagesViewSet)
 router.register('ratings', RatingViewSet)
+router.register('skipper', SkipperViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),

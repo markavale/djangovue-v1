@@ -42,15 +42,16 @@ const actions = {
     fetchCurrentUser: (context) => {
         return new Promise((resolve, reject) => {
             axiosBase
-                .get("rest-auth/user/", {
+            //rest-auth/user/
+                .get("auth/user/", {
                     headers: {
                         "Content-Type": "application/x-www-form-urlencoded",
                         Authorization: `Token ${localStorage.getItem("token")}`,
                     },
                 })
                 .then((res) => {
-                    console.log(res.data);
-                    console.log(res.data.username);
+                    // console.log(res.data);
+                    // console.log(res.data.username);
                     context.commit("currentUser", res.data);
                     resolve(true);
                 })

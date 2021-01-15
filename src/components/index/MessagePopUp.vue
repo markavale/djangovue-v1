@@ -204,6 +204,7 @@ export default {
     },
     noThanks() {
       this.showRate = false;
+      this.$store.dispatch('skipUser')
       this.oneDaySurveyCookie("survey", true);
     },
     rateNow() {
