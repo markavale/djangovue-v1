@@ -140,7 +140,7 @@
                   <p>My own personal website.</p>
                   <div class="portfolio-icons">
                     <a
-                      href="https://github.com/markavale/djangovue-v1"
+                      href="https://github.com/markavale/my-portfolio"
                       target="new"
                       ><span><i class="fab fa-github"></i></span
                     ></a>

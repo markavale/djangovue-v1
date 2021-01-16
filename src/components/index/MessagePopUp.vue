@@ -147,6 +147,10 @@ export default {
     popUpMessage() {
       setTimeout(() => {
         this.show = true;
+        setTimeout(() => {
+          this.show = false
+          this.showRateSurvery();
+        }, 10000);
       }, 7000);
     },
     closeMessage() {
